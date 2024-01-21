@@ -42,6 +42,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-20.04
+    needs: [linters, editorconfig]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
