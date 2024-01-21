@@ -22,8 +22,6 @@ data = {
 user_agent = "windows:producer_app:v1.0 (by /u/Ancient_League_1716)"
 reddit_headers = {"User-agent": user_agent}
 
-req = "https://www.reddit.com/api/v1/access_token"
-
 token_response = requests.post(
     "https://www.reddit.com/api/v1/access_token",
     auth=auth,
@@ -37,7 +35,9 @@ reddit_headers["Authorization"] = f"bearer {token}"
 def fetch(data_batch, after):
     parameters = {"after": after, "limit": 10}
 
-    response = requests.get(req, headers=reddit_headers, params=parameters)
+    response = requests.get(url, headers=reddit_headers, params=parameters)
+
+    print(response)
 
     if response.ok:
         data = response.json()
