@@ -75,7 +75,7 @@ def main():
     asyncio.run(run())
 
     while True:
-        pass
+        continue
 
 
 main()
