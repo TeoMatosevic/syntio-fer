@@ -2,6 +2,7 @@ import requests
 import json
 from azure.eventhub import EventHubProducerClient, EventData
 
+# connection string
 connection_str = (
     "Endpoint=sb://tm-ehns-tpiuo.servicebus.windows.net/"
     ";SharedAccessKeyName=RootManageSharedAccessKey;"
