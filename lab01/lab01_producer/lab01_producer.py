@@ -58,7 +58,7 @@ async def run():
     )
 
     for _ in range(100):
-        data_batch = await producer.create_batch()
+        data_batch = producer.create_batch()
 
         after = fetch(data_batch, after)
 
