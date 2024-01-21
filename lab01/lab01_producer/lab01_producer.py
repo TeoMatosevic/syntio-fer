@@ -69,7 +69,7 @@ async def run():
         if not after:
             break
 
-        await producer.send_batch(data_batch)
+        producer.send_batch(data_batch)
 
         await asyncio.sleep(10)
     pass

@@ -13,7 +13,7 @@ connection_str = (
 eventhub_name = "tm-eh-tpiuo"
 consumer_group = "$Default"
 
-# Storage account information
+# Storage account 
 storage_account_name = "tmsaferlab"
 storage_container_name = "reddit-container"
 storage_account_connection_str = (
