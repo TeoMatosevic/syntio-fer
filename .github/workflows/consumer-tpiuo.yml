@@ -5,6 +5,10 @@ on:
     paths:
       - 'lab01/lab01_consumer/lab01_consumer.py'
 
+permissions:
+  checks: write
+  contents: write
+
 jobs:
   editorconfig:
     name: Check editorconfig
