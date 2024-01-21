@@ -4,6 +4,7 @@ from azure.eventhub import EventHubConsumerClient
 
 # connection string information
 connection_str = 'Endpoint=sb://tm-ehns-tpiuo.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=BpXgI4gaS9suZ9+KaqzW8If9TGTaQwOEM+AEhIiQiWI='
+# eventub name
 eventhub_name = 'tm-eh-tpiuo'
 consumer_group = "$Default"
 
