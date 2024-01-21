@@ -17,20 +17,22 @@ data = {
     "username": "Ancient_League_1716",
     "password": "ijhweubvceuirzv",
 }
-headers = {
-    "User-agent": "windows:producer_app:v1.0 (by /u/Ancient_League_1716)"
-}
+
+user_agent = "windows:producer_app:v1.0 (by /u/Ancient_League_1716)"
+reddit_headers = {"User-agent": user_agent}
+
+redit_url = "https://www.reddit.com/api/v1/access_token"
 
 token_response = requests.post(
     "https://www.reddit.com/api/v1/access_token",
     auth=auth,
     data=data,
-    headers=headers
+    headers=reddit_headers,
 )
 token = token_response.json()["access_token"]
-headers["Authorization"] = f"bearer {token}"
+reddit_headers["Authorization"] = f"bearer {token}"
 
-response = requests.get(url, headers=headers)
+response = requests.get(url, headers=reddit_headers)
 data = response.json()
 
 producer = EventHubProducerClient.from_connection_string(

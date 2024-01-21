@@ -8,7 +8,6 @@ connection_str = (
     "SharedAccessKeyName=RootManageSharedAccessKey;"
     "SharedAccessKey=BpXgI4gaS9suZ9+KaqzW8If9TGTaQwOEM+AEhIiQiWI="
 )
-# eventhub name
 eventhub_name = "tm-eh-tpiuo"
 consumer_group = "$Default"
 
