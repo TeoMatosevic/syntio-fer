@@ -1,0 +1,57 @@
+name: Docker Image CI - consumer
+
+on:
+  push:
+    paths:
+      - 'lab01/lab01_consumer/lab01_consumer.py'
+
+jobs:
+  editorconfig:
+    name: Check editorconfig
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: editorconfig-checker/action-editorconfig-checker@main
+      - run: editorconfig-checker
+
+  linters:
+    name: Run linters
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install Python dependencies
+        run: pip install black flake8
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          black: true
+          flake8: true
+
+  build:
+    name: Build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Log in into Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secreets.AZURE_CREDENTIALS }}
+
+      - name: Build and deploy
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          appSourcePath: ${{ github.workspace }}
+          acrName: tmcrferlab
+          containerAppName: tm-consumer-tpiuo
+          resourceGroup: TPIUO-labosi
+          dockerFile: lab01/lab01_consumer/Dockerfile
