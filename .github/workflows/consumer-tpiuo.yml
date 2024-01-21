@@ -58,4 +58,4 @@ jobs:
           acrName: tmcrferlab
           containerAppName: tm-consumer-tpiuo
           resourceGroup: TPIUO-labosi
-          dockerFile: lab01/lab01_consumer/Dockerfile
+          dockerfilePath: lab01/lab01_consumer/Dockerfile
