@@ -42,6 +42,8 @@ def fetch(data_batch, after):
     if response.ok:
         data = response.json()
 
+        print(data)
+
         for post in data["data"]["children"]:
             data_batch.add(EventData(json.dumps(post).encode("utf-8")))
         after = data["data"]["after"]
@@ -61,6 +63,8 @@ async def run():
         data_batch = producer.create_batch()
 
         after = fetch(data_batch, after)
+
+        print(data_batch)
 
         if not after:
             break
