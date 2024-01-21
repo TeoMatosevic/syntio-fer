@@ -10,7 +10,6 @@ connection_str = (
 )
 # eventhub name
 eventhub_name = "tm-eh-tpiuo"
-# consumer group name
 consumer_group = "$Default"
 
 
