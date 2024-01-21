@@ -3,7 +3,6 @@ import json
 from azure.eventhub import EventHubProducerClient, EventData
 import asyncio
 
-# connection string
 connection_str = (
     "Endpoint=sb://tm-ehns-tpiuo.servicebus.windows.net/"
     ";SharedAccessKeyName=RootManageSharedAccessKey;"
@@ -33,14 +32,6 @@ token_response = requests.post(
 )
 token = token_response.json()["access_token"]
 reddit_headers["Authorization"] = f"bearer {token}"
-
-# response = requests.get(url, headers=reddit_headers)
-# data = response.json()
-
-# event_data_batch = producer.create_batch()
-# for post in data["data"]["children"]:
-#     event_data_batch.add(EventData(json.dumps(post["data"])))
-# producer.send_batch(event_data_batch)
 
 
 def fetch(data_batch, after):

@@ -5,7 +5,6 @@ from azure.storage.filedatalake import DataLakeServiceClient
 from datetime import datetime
 from azure.core.exceptions import ResourceNotFoundError
 
-# connection string
 connection_str = (
     "Endpoint=sb://tm-ehns-tpiuo.servicebus.windows.net/;"
     "SharedAccessKeyName=RootManageSharedAccessKey;"
@@ -30,14 +29,6 @@ service_client = DataLakeServiceClient.from_connection_string(
 file_system_client = service_client.get_file_system_client(
     file_system=storage_container_name
 )
-
-
-# def on_event(partition_context, event):
-#     json_data = json.loads(event.body_as_str())
-
-#     print(json_data)
-
-#     partition_context.update_checkpoint(event)
 
 
 def on_event_batch(partition_context, events):
