@@ -82,4 +82,4 @@ def main():
         continue
 
 
-# main()
+main()
